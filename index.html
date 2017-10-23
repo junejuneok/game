@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>가위바위보</title>
+    <style media="screen">
+      .block{
+        width: 400px;
+        border: 1px solid rgba(60, 53, 53, 0.5);
+        height:500px;
+        background-color: rgba(128, 128, 128,0.4);
+        text-align: center;
+      }
+      .title{
+        text-align: center;
+        padding-top: 30px;
+        font-size: 21px;
+        font-weight: 600;
+      }
+      .status{
+        border: 1px solid black;
+        width: 70px;
+        display: inline-block;
+        height: 85px;
+        text-align: center;
+        padding-top: 30px;
+        box-sizing: border-box;
+        background-color: white;
+        font-weight: 600;
+        margin-top: 30px;
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+      .com{
+        font-weight:400;
+        font-size: 10px;
+        color: rgb(128, 128, 128);
+        padding-top: 6px
+      }
+      .button-wrapper{
+        margin-top: 30px;
+      }
+      button{
+        padding:1px 6px;
+        width: 45px;
+        border-radius: 20%;
+        background-color: white;
+      }
+      button:focus{
+        outline:none
+      }
+      .result{
+        color: red;
+        font-size: 50px;
+        padding-top: 15px
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block">
+      <div class="title">
+        가위바위보 게임!
+      </div>
+      <div id="com" class="status">
+        빠
+        <div class="com">
+          컴퓨터
+        </div>
+      </div>
+      <div id="me" class="status">
+        빠
+        <div class="com">
+          당신
+        </div>
+      </div>
+      <div class="button-wrapper">
+        <button type="button" name="button" onclick="getTurn(0)">가위</button>
+        <button type="button" name="button" onclick="getTurn(1)">바위</button>
+        <button type="button" name="button" onclick="getTurn(2)">보</button>
+      </div>
+      <div id="result" class="result">
+        start!
+      </div>
+    </div>
+    <script type="text/javascript">
+      function getTurn(x){
+        var computer = Math.floor(Math.random()*3);
+        if(x == 0){
+          document.getElementById("me").innerHTML = "가위 <div class='com'> 당신 </div>";
+          if (0 == computer){
+            document.getElementById("com").innerHTML = "가위 <div class='com'> 컴퓨터 </div>";
+            document.getElementById("result").innerHTML = "무승부";
+          }
+          else if (computer == 1) {
+            document.getElementById("com").innerHTML = "바위 <div class='com'> 컴퓨터 </div>";
+            document.getElementById("result").innerHTML = "패배";
+          }
+          else if (computer == 2) {
+                document.getElementById("com").innerHTML = "보 <div class='com'> 컴퓨터 </div>"
+                document.getElementById("result").innerHTML = "승리";
+          }
+        }
+        else if(x == 1){
+          document.getElementById("me").innerHTML = "바위 <div class='com'> 당신 </div>";
+          if (0 == computer){
+            document.getElementById("com").innerHTML = "가위 <div class='com'> 컴퓨터 </div>";
+            document.getElementById("result").innerHTML = "승리";
+          }
+          else if (computer == 1) {
+            document.getElementById("com").innerHTML = "바위 <div class='com'> 컴퓨터 </div>";
+            document.getElementById("result").innerHTML = "무승부";
+          }
+          else if (computer == 2) {
+                document.getElementById("com").innerHTML = "보 <div class='com'> 컴퓨터 </div>"
+                document.getElementById("result").innerHTML = "패배";
+          }
+        }
+          else{
+            document.getElementById("me").innerHTML = "보 <div class='com'> 당신 </div>";
+            if (0 == computer){
+              document.getElementById("com").innerHTML = "가위 <div class='com'> 컴퓨터 </div>";
+              document.getElementById("result").innerHTML = "패배";
+            }
+            else if (computer == 1) {
+              document.getElementById("com").innerHTML = "바위 <div class='com'> 컴퓨터 </div>";
+              document.getElementById("result").innerHTML = "승리";
+            }
+            else if (computer == 2) {
+              document.getElementById("com").innerHTML = "보 <div class='com'> 컴퓨터 </div>";
+              document.getElementById("result").innerHTML = "무승부";
+            }
+
+          }
+      }
+    </script>
+  </body>
+</html>
